@@ -1,0 +1,135 @@
+
+
+
+:root {
+    --light-blue: rgb(25, 127, 211);
+    --dark-blue: rgb(4, 49, 132);
+    --grey: rgb(232, 232, 232);
+    --light-grey: rgb(249, 249, 249);
+  }
+
+  body {
+    font-family: -webkit-pictograph;
+  }
+
+.container {
+    max-width: 500px;
+    min-width: 400px;
+    border: ridge;
+}
+
+
+table{
+    width: -webkit-fill-available;
+    border-spacing: 0;
+}
+
+tr {
+    height: 45px;
+    border-width: thin;
+    border-color: var(--light-grey);
+    text-align: left;
+}
+
+input[type="button"]{
+    border-width: thin;
+    border-radius: 2px;
+    background: white;
+    padding:4px;
+    margin: 2px;
+}
+input[type="button"]:hover {
+    background: var(--grey);
+}
+
+input[type="checkbox"] {
+
+    width: 20px;
+    height: 20px;
+}
+
+.input-container input[type="checkbox"] {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+.custom-checkmark {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border-style: solid;
+    border-width: thin;
+    border-color: grey;
+  }
+
+  .input-container:hover input ~ .custom-checkmark {
+    background-color: #ccc;
+  }
+  .input-container input:checked ~ .custom-checkmark {
+    background-color: white;
+    border-color: var(--light-blue);
+    border-width: 2px;
+}
+.custom-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    color: var(--light-blue);
+  }
+  .input-container input:checked ~ .custom-checkmark:after {
+    display: block;
+  }
+  .input-container .custom-checkmark:after {
+    left: 5px;
+    width: 8px;
+    height:13px;
+    border: solid var(--light-blue);
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
+#save-button {
+    color: white;
+    background: var(--light-blue);
+}
+#save-button:hover {
+    background: rgb(20, 100, 200);
+}
+
+.row-title {
+
+    padding-left: 10px;
+}
+
+.region-title {
+    font-size: 11pt;
+
+    min-width: 50px;
+    color: var(--dark-blue);
+}
+
+.identity-info-row {
+    background: var(--grey);
+}
+
+.title-banner {
+    padding: 10px;
+
+    background:var(--dark-blue);
+    color: white;
+    font-size: 20px;
+    width: -webkit-fill-available;
+  }
+  .button-row {
+    padding: 10px;
+    text-align: right;
+    background:var(--light-grey);
+    color: white;
+    font-size: 20px;
+    width: -webkit-fill-available;
+  }
