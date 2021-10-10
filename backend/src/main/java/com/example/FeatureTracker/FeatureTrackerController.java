@@ -1,8 +1,5 @@
 package com.example.FeatureTracker;
 
-
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
@@ -75,9 +72,6 @@ public class FeatureTrackerController {
     public String postFeatures() {
 
         //TODO validation checks if any
-
-
-
 
         return "writing JSON";
     }
