@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @RestController
 public class FeatureTrackerController {
@@ -47,15 +46,23 @@ public class FeatureTrackerController {
                 //there is for sure a waaay better way to do this..
                 String bitMap =  String.format("%5s", Integer.toBinaryString(featureValue)).replace(' ', '0');
                 FeatureFlag featureFlag = new FeatureFlag();
-                FFRegions regions = new FFRegions();
                 featureFlag.setName(featureName);
-                regions.setAsia(Character.getNumericValue(bitMap.charAt(0)));
-                regions.setKorea(Character.getNumericValue(bitMap.charAt(1)));
-                regions.setEurpoe(Character.getNumericValue(bitMap.charAt(2)));
-                regions.setJapan(Character.getNumericValue(bitMap.charAt(3)));
-                regions.setAmerica(Character.getNumericValue(bitMap.charAt(4)));
-                featureFlag.setRegionValues(regions);
+                //lets use a linked hash map since order is so important for this bit map to work
+                //Map<String, Integer> regions = new LinkedHashMap <>();
+                List<FFRegion> regions = new LinkedList<>();
+                // I assume a list of regions with the defined bitmap order must exist, sooo lets pretend I got this from some call.
+                List<String> regionNames = new ArrayList<>(Arrays.asList( "Asia","Korea", "Europe", "Japan", "America"));
 
+                for( int i =0; i < regionNames.size(); i++) {
+                    //regions.put(regionNames.get(i), Character.getNumericValue(bitMap.charAt(i)));
+
+                    FFRegion region = new FFRegion();
+                    region.setRegionName(regionNames.get(i));
+                    region.setRegionValue(Character.getNumericValue(bitMap.charAt(i)));
+                    regions.add(region);
+                }
+
+                featureFlag.setRegionValues(regions);
                 featureFlags.add(featureFlag);
             }
 

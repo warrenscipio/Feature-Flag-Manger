@@ -11,13 +11,11 @@ import FeatureTracker from '../FeatureTracker/featureTracker';
 
 
 function FeatureDropdown(props){
-    let featureBitMaps;
+let featureBitMaps;
 let featureMapValues = new Map();
 
     //call backend?
     function getBitMap(selected){
-
-
 
         ReactDOM.render(<FeatureTracker name={selected.value} />, document.getElementById("feature-tracker"));
 
