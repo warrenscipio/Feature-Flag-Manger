@@ -1,6 +1,6 @@
 import React from "react";
 import "./featureTracker.css";
-import {updateFeatures} from "./featureUtility.js"
+import {updateFeatures, saveCurrentFeatureValues} from "./featureUtility.js"
 
 /**
  * Rendering of the Feature Manger.
@@ -17,7 +17,7 @@ function FeatureTracker(props) {
     function saveButtonClicked() {
         console.log("save")
         console.log(unsavedFeatureFlags)
-
+        saveCurrentFeatureValues(unsavedFeatureFlags);
         
     }
 
